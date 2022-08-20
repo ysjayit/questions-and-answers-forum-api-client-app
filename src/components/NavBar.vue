@@ -6,6 +6,7 @@ export default {
         logout() {
             localStorage.removeItem('user-token');
             localStorage.removeItem('user-role');
+            localStorage.removeItem('user-name');
             this.$router.push('/');
         },
     },

@@ -20,6 +20,7 @@ export default {
 
         localStorage.setItem('user-token', response.data.data.token);
         localStorage.setItem('user-role', response.data.data.role);
+        localStorage.setItem('user-name', response.data.data.name);
         this.$router.push('/dashboard');
 
       }).catch(error => {

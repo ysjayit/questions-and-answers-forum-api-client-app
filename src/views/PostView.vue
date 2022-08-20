@@ -37,7 +37,7 @@ export default {
             axios.post(config.base_url+'posts/'+this.id+'/comments',
                     { comment: this.data.comment }, 
                     { headers: {"Authorization" : `Bearer ${localStorage.getItem('user-token')}`} }).then((response)=>{
-                this.data.comments.push({comment: this.data.comment});
+                this.data.comments.push({comment: this.data.comment, user: { name: localStorage.getItem('user-name') }});
                 this.data.comment = null;
                 this.errors = '';
             }).catch(error => {
@@ -93,7 +93,7 @@ export default {
                     <div class="card-body p-0">
                         <ul class="list-group list-group-flush rounded">
                             <li class="list-group-item" v-for="(item, index) in data.comments" v-if="data.comments">
-                                {{item.comment}}
+                                {{item.comment}} - <i>{{item.user.name}}</i>
                             </li>
                         </ul>
                     </div>
